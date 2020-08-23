@@ -1,0 +1,212 @@
+﻿@{ 
+    //var user = ViewData["user"] as OnlineCrimeReportingSystem.Models.UserProfile;
+
+    //string id = "";
+    //if (!User.Identity.IsAuthenticated)
+    //{
+    //    id = Request.Cookies["id"].Value;
+    //}
+
+    //int userid = 0;
+    //if (string.IsNullOrEmpty(id))
+    //{
+    //    userid = 0;
+    //} else
+    //{
+    //    userid = Convert.ToInt32(id);
+    //}
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Online Crime Reporting System</title>
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/animate.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap3.30.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome1.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap3.30.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery3.30.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery3.30.min.js"></script>
+    <link href="~/Content/bootstrap3.30.min.css" rel="stylesheet" id="bootstrap-css" />
+
+    @Styles.Render("~/Content/hamburgers.min.css")
+    @Styles.Render("~/Content/font-awesome.min.css")
+    @Styles.Render("~/Content/select2.min.cs")
+    @Styles.Render("~/Content/util.css")
+    @Styles.Render("~/Content/main.css")
+    @Scripts.Render("~/bundles/modernizr-2.8.3")
+
+
+
+
+</head>
+
+<body  class="container-fluid" style="font-family: 'Teko', sans-serif;
+
+    width: 100%;
+    /*width: 100px;*/
+    height: 550px;
+    background: #3a6186; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3a6186, #89253e); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3a6186, #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;">
+
+
+
+
+
+    <div @*class="animate btn btn-sm"*@ style=" position: fixed; top: 0;  z-index:10; margin-left:-25px; margin-top:-10px; margin-top: -10px;
+
+width: 100%;">
+        <nav class="navbar header-top fixed-top navbar-expand-lg" style="background-color:#0d0d26; font-size:medium;">
+
+           
+
+            <script>
+
+                window.onscroll = function () { myFunction() };
+
+                // Get the navbar
+                var navbar = document.getElementById("navbar");
+
+                // Get the offset position of the navbar
+                var sticky = navbar.offsetTop;
+
+                // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+                function myFunction() {
+                    if (window.pageYOffset >= sticky) {
+                        navbar.classList.add("sticky")
+                    } else {
+                        navbar.classList.remove("sticky");
+                    }
+                }
+
+            </script>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarText" style="background-color:#0d0d26; font-size:medium;">
+                <ul class="navbar-nav animate side-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="navbar-brand" href="/Home/Index" style="font-size:20px;">
+                            <b>
+                                <tt>&nbsp;&nbsp;Home</tt>
+                            </b>
+                        </a>
+                         <li class="nav-item" style="font-size:larger;">
+                            <a class="navbar-brand" href="/CrimeReport/CrimeReportView">
+                                <b>
+                                    <tt>&nbsp;Report Crime</tt>
+                                </b>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="font-size:larger;">
+                            <a class="navbar-brand" href="/RetrieveCrimeReport/RetrieveCrimeReportView">
+                                <b>
+                                    <tt>&nbsp;View Reported Crime</tt>
+                                </b>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="/MostWantedCriminal/MostWantedCriminalView">
+                                <b>
+                                    <tt>&nbsp;Most Wanted Criminals</tt>
+                                </b>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <form method="post" action="/UserRegister/ChangeOrUpdatePassword">
+                                <a class="navbar-brand">
+                                    <b>
+                                        <input type="hidden" name="Email" value="@User.Identity.Name" />
+                                        <button type="submit" style="color:#3a6186;">&nbsp;&nbsp;<tt> Welcome&nbsp;<u>@User.Identity.Name</u></tt></button>
+                                    </b>
+                                </a>
+                            </form>
+                            </li>
+
+                            @*<a class="navbar-brand" href="/UserRegister/ChangeOrUpdatePassword/@User.Identity.Name">
+                                <b>
+                                    <tt>&nbsp;&nbsp;&nbsp; Welcome <u>@User.Identity.Name</u></tt>
+                                </b>
+                            </a>*@
+                        <li>
+                            <a class="navbar-brand" href="/Login/Logout">
+                                <b>
+                                    <tt>&nbsp;Logout</tt>
+                                </b>
+                            </a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <a class="navbar-brand" href="/Home/Index" style="font-size:20px;">
+                            <b>
+                                <tt>&nbsp;&nbsp;Online Crime Reporting System</tt>
+                            </b>
+                        </a>
+
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="/Login/LoginView">
+                                <b>
+                                    <tt>&nbsp;&nbsp;&nbsp;Login</tt>
+                                </b>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="/UserRegister/UserRegisterView">
+                                <b>
+                                    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register</tt>
+                                </b>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="/MostWantedCriminal/MostWantedCriminalView">
+                                <b>
+                                    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Most Wanted Criminals</tt>
+                                </b>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+
+
+            </div>
+        </nav>
+
+    </div>
+
+    <br /> <br /> <br />
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="height:40px; color:white;">
+                &copy; Developed by " <a style="color:darkgrey;" href="https://www.facebook.com/m4milan">Milan Babu Adhikari</a>"
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

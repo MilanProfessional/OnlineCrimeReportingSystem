@@ -1,0 +1,52 @@
+﻿@model List<OnlineCrimeReportingSystem.Models.ContactUsMessage>
+@{
+    ViewBag.Title = "ContactUs Message View - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row col-md-12">
+        <h2><tt><u><b>Contact Us Messages</b></u></tt></h2>
+        <table class="table table-striped custab" style=" width:100%; border: 3px solid grey; border-collapse: collapse; overflow-x:auto;">
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile No.</th>
+                    <th>Message</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.MobileNo</td>
+                        <td>@item.Message</td>
+                        <td>
+                            <form method="post" action="/AdminViewContactUsMessage/DeleteSomething/@item.Id">
+                                <input type="submit" value="Delete Message" class="btn btn-small btn-danger">
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        @foreach (var item in Model)
+        {
+        }
+
+
+    </div>
+</div>

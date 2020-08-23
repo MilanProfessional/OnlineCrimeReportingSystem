@@ -1,0 +1,85 @@
+﻿@model List<OnlineCrimeReportingSystem.Models.Crime>
+@{
+    ViewBag.Title = "AdminRetrieveCrimeReportView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" >
+    <div class="row col-md-12">
+        <h2><tt><u><b>Crime Report Recieved</b></u></tt></h2>
+        <div style="width: 1100px; height:400px; overflow-x: auto">
+            <table class="table table-striped custab" style="width:100%; border: 4px solid grey;">
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Criminal Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Location</th>
+                        <th style="width:200px;">Crime Date</th>
+                        <th>Description</th>
+                        <th>File</th>
+                        <th>Reporting Date</th>
+                        <th>Update Date</th>
+                        <th>Action</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @*@foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                            <td>@item.Location</td>
+                            <td>@item.CrimeDate</td>
+                            <td>@item.Message</td>
+                            <td>@item.CrimeDate</td>
+                            <td>
+                                @if (item.Status == true)
+                                {
+                                    <a href="~/AdminRetrieveCrimeReport/DeactiveCrime/@item.Id">Deactive</a>
+                                } else
+                                {
+                                    <span style="color: red;">Deactivated</span>
+                                }
+                            </td>
+                            <td>test</td>
+                        </tr>
+                    }*@
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.CriminalName</td>
+                            <td>@item.Email</td>
+                            <td>@item.Subject</td>
+                            <td>@item.Location</td>
+                            <td>@item.CrimeDate</td>
+                            <td>@item.Message</td>
+                            <td><img style="width: 100px; height: 100px" src="http://localhost:50189/Content/Images/@item.Files" /></td>
+                            <td>@item.ReportingDate</td>
+                            <td>@item.UpdateDate</td>
+                            <td><a href="~/UpdateCrimeReport/UpdateCrimeReportView/@item.Id" class="btn btn-success">Update</a></td>
+                            <td>
+                                @if (item.Status == true)
+                                {
+                                    <a href="~/AdminRetrieveCrimeReport/DeactiveCrime/@item.Id">Deactive</a>
+                                }
+                                else
+                                {
+                                    <span style="color: red;">Deactivated</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>

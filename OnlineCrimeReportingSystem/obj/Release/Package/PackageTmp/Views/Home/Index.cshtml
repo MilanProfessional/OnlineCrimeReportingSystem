@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/ContactUs.css" rel="stylesheet" />
+<script src="~/Scripts/ContactUs.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<section id="contact" style="margin-left:-140px; height:100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post" action="/Home/SaveContactUsMessageInDatabase" style="margin-bottom:40px;">
+                    <h1 class="">Get in  Touch with us</h1>
+
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input name="Name" type="text" class="form-control" id="" placeholder=" Enter Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input name="Email" type="email" class="form-control" placeholder=" Enter Email id">
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile No.</label>
+                        <input name="MobileNo" type="tel" class="form-control" placeholder=" Enter 10-digit mobile no.">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="Message" class="form-control" placeholder="Enter Your Message"></textarea>
+                    </div>
+                    <div>
+                        @*<button type="button" class="btn btn-info submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send Message</button>*@
+                        @*<input type="submit" class="btn btn-info btn-block"  value="Send Message"> <i class="fa fa-paper-plane" aria-hidden="true"></i>*@
+                        @*<input type="submit" class="btn btn-info btn-block" value="Send">
+                    <span class="glyphicon"> <i class="fa fa-paper-plane" aria-hidden="true"></i> </span>*@
+                        <label for="mySubmit" class="btn btn-info btn-block"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message</label>
+                        <input id="mySubmit" type="submit" value="Go" class="hidden" />
+                    </div>
+
+
+                </form>
+            </div>
+
+
+            @if (User.Identity.IsAuthenticated)
+            {
+
+
+            }
+            else
+            {<div class="col-md-6">
+
+                    <fieldset>
+                        <h1>Please Login</h1>
+
+                        @* controller , method*@
+                        <form method="post" action="/Login/LoginUser">
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="Email" id="email" class="form-control" placeholder="Email Address">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="Password" id="password" class="form-control" placeholder="Password">
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login">
+                                </div>
+                                @*<div class="col-xs-6 col-sm-6 col-md-6">
+                                <input type="button" class="btn btn-lg btn-success btn-block" value="Cancel">
+                                <a href="~/Home/Index" class="btn btn-lg btn-info btn-block "> Return to Home </a>
+                            </div>*@
+                            </div>
+                            <br /><br />
+                            <div class="row  ">
+                                <div class="col-sm-12">
+
+                                    <a href="~/UserRegister/UserRegisterView" class="btn btn-success btn-block btn-lg "><u> Don't have account? Please click here to register. </u> </a>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </fieldset>
+
+
+
+                </div>
+            }
+            </div>
+    </div>
+</section>
+

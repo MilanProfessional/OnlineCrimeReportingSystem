@@ -1,0 +1,63 @@
+﻿@model List<OnlineCrimeReportingSystem.Models.AdminCriminalRecord>
+@{
+    ViewBag.Title = "AdminMostWantedCriminalView - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string path = @Server.MapPath("~/Content/images");
+}
+
+<section id="team" class="pb-5">
+    <div class="container">
+        <h1 class="section-title h1"><tt><b>Most Wanted Criminals</b></tt></h1>
+        <form>
+            <div class="col col-xs-6 text-right">
+                @*<input type="file" class="btn btn-sm btn-success btn-create" id="fileLoader" name="files" title="Load File" />
+                <asp:Button ID="LoginButton" runat="server" Text="ASP click Me" onclientclick="openfileDialog()" />*@
+
+                <a href="~/AdminAddMostWantedCriminalRecords/AdminAddMostWantedCriminalRecordsView" type="button" id=" AddCriminals" class="btn btn-sm btn-info btn-create ">Add Criminals</a>
+                @*<button type="reset" id="RemoveImage" class="btn btn-sm btn-danger btn-create disabled">Remove Image</button>*@
+
+            </div>
+        </form>
+        <br />
+        <div class="row">
+            <!-- Most Wanted Criminals -->
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p>@*<img class=" img-fluid" src="~/App_Data/uploads/@item.Image" alt="">*@</p>
+                                        <p>@*<img class=" img-fluid" src="@path@item.Image" alt="">*@</p>
+                                        <p><img class="img-fluid" src="http://localhost:50189/Content/Images/@item.Image" alt=""></p>
+                                        <h4 class="card-title">@item.Name</h4>
+                                        <p class="card-text">@item.FrontDescription</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">@item.Name</h4>
+                                        <p class="card-text">@item.BackDescription</p>
+
+                                    </div>
+                                    <a href="~/AdminAddMostWantedCriminalRecords/UpdateCriminalRecords/@item.Id" class="btn btn-sm btn-info">Update Details</a> &nbsp;
+                                    <form method="post" action="/AdminMostWantedCriminal/DeleteCriminalDetails/@item.Id">
+                                        <input type="submit" value="Delete Criminal Record" class="btn btn-block btn-danger">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+

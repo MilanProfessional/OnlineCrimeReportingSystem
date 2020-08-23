@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "CrimeType";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <form method="post" action="/CrimeType/SaveCrimeType">
+        <div class="from-group">
+            <input type="text" class="form-control" name="CrimeTypes" placeholder="Enter crime types" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </form>
+</div>

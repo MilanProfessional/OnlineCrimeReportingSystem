@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "AdminAddMostWantedCriminalRecordsView - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<form method="post" action="/AdminAddMostWantedCriminalRecords/UploadPhoto" enctype="multipart/form-data">
+    <input type="file" name="file" id="file" />
+    <input type="submit" />
+</form>*@
+
+
+<div class="contact1">
+    <div class="container-contact1">
+        <div class="contact1-pic js-tilt" data-tilt>
+            <img src="~/images/img-01.png" alt="IMG">
+        </div>
+
+        <form class="contact1-form validate-form" method="post" enctype="multipart/form-data" action="/AdminAddMostWantedCriminalRecords/SaveCriminalRecordsInDatabase">
+            <span class="contact1-form-title">
+                <h2><tt><b>Enlist Criminal Details</b></tt></h2>
+            </span>
+
+            <div class="wrap-input1 validate-input" data-validate="Name is required">
+                <input class="input1" type="text" name="Name" placeholder="Name">
+                <span class="shadow-input1"></span>
+            </div>
+
+           
+            <div class="wrap-input1 validate-input" data-validate="Front Description is required">
+                <textarea class="input1" name="FrontDescription" placeholder="Front Description"></textarea>
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input" data-validate="Back Description is required">
+                <textarea class="input1" name="BackDescription" placeholder="Back Description"></textarea>
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1">
+                <input class="input1" type="file" name="file" id="file" placeholder="Upload Criminal Photo">
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+
+                    <button type="reset" class="btn btn-success btn-block btn-lg "> Cancel </button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+

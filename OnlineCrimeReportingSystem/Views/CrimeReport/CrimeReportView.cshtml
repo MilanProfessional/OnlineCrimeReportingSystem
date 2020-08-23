@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "CrimeReportView - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="contact1"  style="z-index:0;">
+    <div class="container-contact1">
+        <div class="contact1-pic js-tilt" data-tilt>
+            <img src="~/images/img-01.png" alt="IMG">
+        </div>
+
+        <form class="contact1-form validate-form" method="post" enctype="multipart/form-data" action="/CrimeReport/SaveCrimeReportInDatabase">
+            <span class="contact1-form-title">
+                <h2><tt><b>Report Crime Here</b></tt></h2>
+            </span>
+
+            <div class="wrap-input1 validate-input" data-validate="Name is required">
+                <input class="input1" type="text" name="Name" placeholder="Your Name">
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1">
+                <input class="input1" type="text" name="CriminalName" placeholder="Criminal Name, if you know!">
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <input class="input1" type="text" name="Email" placeholder="Email">
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input" data-validate="Subject is required">
+                <select id="Subject" class="form-control input1" name="Subject">
+                    <option selected>Case Subject... </option>
+                    <option value="Rape">Rape</option>
+                    <option value="Cyber Crime">Cyber Crime</option>
+                    <option value="Fight">Fight</option>
+                    <option value="Robbery">Robbery</option>
+                    <option value="Drug Abuse">Drug Abuse</option>
+                    <option value="Homicides">Homicides</option>
+                    <option value="Fraud">Fraud</option>
+                    <option value="Hit and Run">Hit and Run</option>
+                    <option value="Missing Person">Missing Person</option>
+                    <option value="Other">Other...Please Describe Below</option>
+                </select>
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div id="showDiv" class="wrap-input1 validate-input">
+                <input class="input1" id="other" type="text" name="Other" placeholder="Other please specify here">
+                <span class="shadow-input1"></span>
+            </div>
+
+            @*<div class="wrap-input1 validate-input" data-validate="Location is required">
+            <select class="form-control input1">
+                <option>Select Location......</option>
+                <option v>Pokhara</option>
+                <option>kathmandu</option>
+                <option>Butwal</option>
+                <option>Bhairahawa</option>
+                <option>Chitwan</option>
+                <option>Birgunj</option>
+                <option>Other...Please give location in discription box below.</option>
+            </select>
+            <span class="shadow-input1"></span>
+        </div>*@
+
+            <div class="wrap-input1 validate-input" data-validate="Location is required">
+                <input class="input1" name="Location" type="text" placeholder="Exact crime location(State, District, Municipality,..,..)"></input>
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                <input class="input1" name="CrimeDate" type="date">
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1 validate-input" data-validate="Message is required">
+                <textarea class="input1" name="message" placeholder="Message or Description of Crime"></textarea>
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="wrap-input1">
+                <input class="input1" type="file" name="file" id="file" placeholder="Upload Crime Photo">
+                <span class="shadow-input1"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+
+                    <button type="reset" class="btn btn-success btn-block btn-lg "> Cancel </button>
+                </div>
+            </div>
+
+
+        </form>
+        </div>
+    </div>
+
+<script>
+
+    $(document).ready(function () {
+        $("#showDiv").hide();
+        $("#Subject").change(function () {
+            var value = $(this).val();
+            if (value === "Other") {
+                $("#showDiv").show();
+            }
+        });
+    });
+    
+</script>
